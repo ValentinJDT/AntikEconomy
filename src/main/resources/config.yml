@@ -1,0 +1,6 @@
+currency:
+  default-value: 50.0
+  color: "&c"
+  singular: "antikcoin"
+  plural: "antikcoins"
+  suffix: "ac"
