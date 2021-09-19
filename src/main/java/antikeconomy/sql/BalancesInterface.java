@@ -10,14 +10,12 @@ public class BalancesInterface extends SQLite {
 
     public HashMap<UUID, Double> getBalancesDB() {
         HashMap<UUID, Double> balances = new HashMap<>();
-
         List<Map<String, String>> balancesDB = fetchAll("SELECT * FROM Balances");
 
         for(Map<String, String> balance : balancesDB) {
-
             UUID uuid = UUID.fromString(balance.get("uuid"));
             Double money = Double.parseDouble(balance.get("money"));
-
+            
             balances.put(uuid, money);
         }
 
@@ -25,7 +23,6 @@ public class BalancesInterface extends SQLite {
     }
 
     public void saveBalances(HashMap<UUID, Double> balancesDB) {
-
         String insertString = "INSERT INTO Balances (`id`, `uuid`, `money`) VALUES ";
 
         List<String> values = new ArrayList<>();
