@@ -5,19 +5,18 @@ import antikeconomy.economy.VaultHook;
 import antikeconomy.sql.BalancesInterface;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public final class AntikEconomy extends JavaPlugin {
 
     private static AntikEconomy instance;
 
-    public HashMap<UUID, Double> playerBank = new HashMap<>();
+    public HashMap<UUID, Double> playerAccounts = new HashMap<>();
+    public HashMap<UUID, Double> playerBanks = new HashMap<>();
+
     public EconomyImplementer economyImplementer;
     private VaultHook vaultHook;
 
@@ -53,7 +52,7 @@ public final class AntikEconomy extends JavaPlugin {
     }
 
     private void initEconomy() {
-        playerBank = balancesInterface.getBalancesDB();
+        playerAccounts = balancesInterface.getBalancesDB();
         autoSave();
     }
 
@@ -62,7 +61,7 @@ public final class AntikEconomy extends JavaPlugin {
     }
 
     public void save() {
-        balancesInterface.saveBalances(playerBank);
+        balancesInterface.saveBalances(playerAccounts);
         Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Balances saved");
     }
 }

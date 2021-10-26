@@ -73,14 +73,14 @@ public class EconomyImplementer implements Economy {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
 
-        return antikEconomy.playerBank.containsKey(uuid);
+        return antikEconomy.playerAccounts.containsKey(uuid);
     }
 
     @Override
     public boolean hasAccount(OfflinePlayer player) {
         UUID uuid = player.getUniqueId();
 
-        return antikEconomy.playerBank.containsKey(uuid);
+        return antikEconomy.playerAccounts.containsKey(uuid);
     }
 
     @Override
@@ -88,66 +88,66 @@ public class EconomyImplementer implements Economy {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
 
-        return antikEconomy.playerBank.containsKey(uuid);
+        return antikEconomy.playerAccounts.containsKey(uuid);
     }
 
     @Override
     public boolean hasAccount(OfflinePlayer player, String worldName) {
         UUID uuid = player.getUniqueId();
 
-        return antikEconomy.playerBank.containsKey(uuid);
+        return antikEconomy.playerAccounts.containsKey(uuid);
     }
 
     @Override
     public double getBalance(String playerName) {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
-        return antikEconomy.playerBank.get(uuid);
+        return antikEconomy.playerAccounts.get(uuid);
     }
 
     @Override
     public double getBalance(OfflinePlayer player) {
         UUID uuid = player.getUniqueId();
-        return antikEconomy.playerBank.get(uuid);
+        return antikEconomy.playerAccounts.get(uuid);
     }
 
     @Override
     public double getBalance(String playerName, String world) {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
-        return antikEconomy.playerBank.get(uuid);
+        return antikEconomy.playerAccounts.get(uuid);
     }
 
     @Override
     public double getBalance(OfflinePlayer player, String world) {
         UUID uuid = player.getUniqueId();
-        return antikEconomy.playerBank.get(uuid);
+        return antikEconomy.playerAccounts.get(uuid);
     }
 
     @Override
     public boolean has(String playerName, double amount) {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
-        return antikEconomy.playerBank.get(uuid) >= amount;
+        return antikEconomy.playerAccounts.get(uuid) >= amount;
     }
 
     @Override
     public boolean has(OfflinePlayer player, double amount) {
         UUID uuid = player.getUniqueId();
-        return antikEconomy.playerBank.get(uuid) >= amount;
+        return antikEconomy.playerAccounts.get(uuid) >= amount;
     }
 
     @Override
     public boolean has(String playerName, String worldName, double amount) {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
-        return antikEconomy.playerBank.get(uuid) >= amount;
+        return antikEconomy.playerAccounts.get(uuid) >= amount;
     }
 
     @Override
     public boolean has(OfflinePlayer player, String worldName, double amount) {
         UUID uuid = player.getUniqueId();
-        return antikEconomy.playerBank.get(uuid) >= amount;
+        return antikEconomy.playerAccounts.get(uuid) >= amount;
     }
 
     @Override
@@ -155,18 +155,18 @@ public class EconomyImplementer implements Economy {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
 
-        double oldBalance = antikEconomy.playerBank.get(uuid);
-        antikEconomy.playerBank.put(uuid, oldBalance - amount);
-        return new EconomyResponse(amount, antikEconomy.playerBank.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
+        double oldBalance = antikEconomy.playerAccounts.get(uuid);
+        antikEconomy.playerAccounts.put(uuid, oldBalance - amount);
+        return new EconomyResponse(amount, antikEconomy.playerAccounts.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer player, double amount) {
         UUID uuid = player.getUniqueId();
 
-        double oldBalance = antikEconomy.playerBank.get(uuid);
-        antikEconomy.playerBank.put(uuid, oldBalance - amount);
-        return new EconomyResponse(amount, antikEconomy.playerBank.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
+        double oldBalance = antikEconomy.playerAccounts.get(uuid);
+        antikEconomy.playerAccounts.put(uuid, oldBalance - amount);
+        return new EconomyResponse(amount, antikEconomy.playerAccounts.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
@@ -174,18 +174,18 @@ public class EconomyImplementer implements Economy {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
 
-        double oldBalance = antikEconomy.playerBank.get(uuid);
-        antikEconomy.playerBank.put(uuid, oldBalance - amount);
-        return new EconomyResponse(amount, antikEconomy.playerBank.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
+        double oldBalance = antikEconomy.playerAccounts.get(uuid);
+        antikEconomy.playerAccounts.put(uuid, oldBalance - amount);
+        return new EconomyResponse(amount, antikEconomy.playerAccounts.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer player, String worldName, double amount) {
         UUID uuid = player.getUniqueId();
 
-        double oldBalance = antikEconomy.playerBank.get(uuid);
-        antikEconomy.playerBank.put(uuid, oldBalance - amount);
-        return new EconomyResponse(amount, antikEconomy.playerBank.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
+        double oldBalance = antikEconomy.playerAccounts.get(uuid);
+        antikEconomy.playerAccounts.put(uuid, oldBalance - amount);
+        return new EconomyResponse(amount, antikEconomy.playerAccounts.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
@@ -193,18 +193,18 @@ public class EconomyImplementer implements Economy {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
 
-        double oldBalance = antikEconomy.playerBank.get(uuid);
-        antikEconomy.playerBank.put(uuid, oldBalance + amount);
-        return new EconomyResponse(amount, antikEconomy.playerBank.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
+        double oldBalance = antikEconomy.playerAccounts.get(uuid);
+        antikEconomy.playerAccounts.put(uuid, oldBalance + amount);
+        return new EconomyResponse(amount, antikEconomy.playerAccounts.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
     public EconomyResponse depositPlayer(OfflinePlayer player, double amount) {
         UUID uuid = player.getUniqueId();
 
-        double oldBalance = antikEconomy.playerBank.get(uuid);
-        antikEconomy.playerBank.put(uuid, oldBalance + amount);
-        return new EconomyResponse(amount, antikEconomy.playerBank.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
+        double oldBalance = antikEconomy.playerAccounts.get(uuid);
+        antikEconomy.playerAccounts.put(uuid, oldBalance + amount);
+        return new EconomyResponse(amount, antikEconomy.playerAccounts.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
@@ -212,23 +212,25 @@ public class EconomyImplementer implements Economy {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
 
-        double oldBalance = antikEconomy.playerBank.get(uuid);
-        antikEconomy.playerBank.put(uuid, oldBalance + amount);
-        return new EconomyResponse(amount, antikEconomy.playerBank.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
+        double oldBalance = antikEconomy.playerAccounts.get(uuid);
+        antikEconomy.playerAccounts.put(uuid, oldBalance + amount);
+        return new EconomyResponse(amount, antikEconomy.playerAccounts.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
     public EconomyResponse depositPlayer(OfflinePlayer player, String worldName, double amount) {
         UUID uuid = player.getUniqueId();
 
-        double oldBalance = antikEconomy.playerBank.get(uuid);
-        antikEconomy.playerBank.put(uuid, oldBalance + amount);
-        return new EconomyResponse(amount, antikEconomy.playerBank.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
+        double oldBalance = antikEconomy.playerAccounts.get(uuid);
+        antikEconomy.playerAccounts.put(uuid, oldBalance + amount);
+        return new EconomyResponse(amount, antikEconomy.playerAccounts.get(uuid), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
     public EconomyResponse createBank(String name, String player) {
-        return null;
+
+
+        return new EconomyResponse(0, 0, EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
@@ -291,8 +293,8 @@ public class EconomyImplementer implements Economy {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
 
-        if(!antikEconomy.playerBank.containsKey(uuid)) {
-            antikEconomy.playerBank.put(uuid, 50d);
+        if(!antikEconomy.playerAccounts.containsKey(uuid)) {
+            antikEconomy.playerAccounts.put(uuid, 50d);
             return true;
         }
         return false;
@@ -302,9 +304,9 @@ public class EconomyImplementer implements Economy {
     public boolean createPlayerAccount(OfflinePlayer player) {
         UUID uuid = player.getUniqueId();
 
-        if(!antikEconomy.playerBank.containsKey(uuid)) {
+        if(!antikEconomy.playerAccounts.containsKey(uuid)) {
             double money = Double.parseDouble(EconomyConf.DEFAULT_VALUE.getValue());
-            antikEconomy.playerBank.put(uuid, money);
+            antikEconomy.playerAccounts.put(uuid, money);
             return true;
         }
         return false;
@@ -315,9 +317,9 @@ public class EconomyImplementer implements Economy {
         Player player = Bukkit.getPlayer(playerName);
         UUID uuid = player.getUniqueId();
 
-        if(!antikEconomy.playerBank.containsKey(uuid) || worldName.equals("reset")) {
+        if(!antikEconomy.playerAccounts.containsKey(uuid) || worldName.equals("reset")) {
             double money = Double.parseDouble(EconomyConf.DEFAULT_VALUE.getValue());
-            antikEconomy.playerBank.put(uuid, money);
+            antikEconomy.playerAccounts.put(uuid, money);
             return true;
         }
         return false;
@@ -327,9 +329,9 @@ public class EconomyImplementer implements Economy {
     public boolean createPlayerAccount(OfflinePlayer player, String worldName) {
         UUID uuid = player.getUniqueId();
 
-        if(!antikEconomy.playerBank.containsKey(uuid) || worldName.equals("reset")) {
+        if(!antikEconomy.playerAccounts.containsKey(uuid) || worldName.equals("reset")) {
             double money = Double.parseDouble(EconomyConf.DEFAULT_VALUE.getValue());
-            antikEconomy.playerBank.put(uuid, money);
+            antikEconomy.playerAccounts.put(uuid, money);
             return true;
         }
         return false;
