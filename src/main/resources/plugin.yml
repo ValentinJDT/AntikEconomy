@@ -4,3 +4,7 @@ main: antikeconomy.AntikEconomy
 api-version: 1.17
 authors: [ MrCoq ]
 description: Economy plugin
+
+permissions:
+  antikeconomy.salary:
+    default: false

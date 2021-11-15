@@ -1,6 +1,8 @@
 package antikeconomy;
 
+import antikeconomy.economy.Command;
 import antikeconomy.economy.EconomyImplementer;
+import antikeconomy.economy.Salarie;
 import antikeconomy.economy.VaultHook;
 import antikeconomy.sql.BalancesInterface;
 import org.bukkit.Bukkit;
@@ -16,7 +18,6 @@ public final class AntikEconomy extends JavaPlugin {
 
     public HashMap<UUID, Double> playerAccounts = new HashMap<>();
     public HashMap<UUID, Double> playerBanks = new HashMap<>();
-
     public EconomyImplementer economyImplementer;
     private VaultHook vaultHook;
 
@@ -34,10 +35,7 @@ public final class AntikEconomy extends JavaPlugin {
 
         initEconomy();
         saveDefaultConfig();
-
-        for(EconomyImplementer.EconomyConf conf : EconomyImplementer.EconomyConf.values()) {
-            System.out.println("----> " + conf.getValue().replace("§", "&"));
-        }
+        Salarie.autoSend();
     }
 
     @Override
@@ -62,6 +60,6 @@ public final class AntikEconomy extends JavaPlugin {
 
     public void save() {
         balancesInterface.saveBalances(playerAccounts);
-        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Balances saved");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Balances saved !");
     }
 }

@@ -21,6 +21,7 @@ public class EconomyImplementer implements Economy {
         PLURAL(config.getString("currency.plural")),
         SINGULAR(config.getString("currency.singular")),
         SUFFIX(config.getString("currency.suffix")),
+        SALARY(config.getString("salarie.recieve-message")),
         DEFAULT_VALUE("" + config.getDouble("currency.default-value"));
 
         private String value;

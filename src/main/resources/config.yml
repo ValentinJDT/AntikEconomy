@@ -1,6 +1,9 @@
 currency:
   default-value: 50.0
-  color: "&c"
-  singular: "antikcoin"
-  plural: "antikcoins"
-  suffix: "ac"
+  color: "&d"
+  singular: "eCubes"
+  plural: "eCubes"
+  suffix: "eC"
+
+salarie:
+  recieve-message: "&7Vous avez reçu %%money%%"
