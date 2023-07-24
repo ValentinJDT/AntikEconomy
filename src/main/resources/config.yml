@@ -1,9 +1,10 @@
 currency:
   default-value: 50.0
   color: "&d"
-  singular: "eCubes"
-  plural: "eCubes"
-  suffix: "eC"
+  singular: "dollar"
+  plural: "dollars"
+  suffix: "$"
 
 salarie:
+  enable: false
   recieve-message: "&7Vous avez reçu %%money%%"
