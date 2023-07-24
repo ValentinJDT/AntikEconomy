@@ -14,11 +14,13 @@ public enum BankEnum {
     private String name;
     private boolean buyable;
     private double percent;
+    private double bankingLimit;
 
     BankEnum(String name, boolean buyable, double percent, int bankingLimit) {
         this.name = name;
         this.buyable = buyable;
         this.percent = percent;
+        this.bankingLimit = bankingLimit;
     }
 
     public String getName() {
@@ -27,6 +29,10 @@ public enum BankEnum {
 
     public boolean isBuyable() {
         return buyable;
+    }
+
+    public double getBankingLimit() {
+        return bankingLimit;
     }
 
     public double getPercent() {
