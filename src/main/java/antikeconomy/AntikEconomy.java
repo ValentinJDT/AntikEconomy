@@ -1,6 +1,5 @@
 package antikeconomy;
 
-import antikeconomy.economy.Command;
 import antikeconomy.economy.EconomyImplementer;
 import antikeconomy.economy.Salarie;
 import antikeconomy.economy.VaultHook;
